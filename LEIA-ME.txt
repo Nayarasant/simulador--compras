@@ -1,0 +1,15 @@
+SIMULADOR DE COMPRAS — HTML, CSS E JAVASCRIPT
+
+1. Extraia o arquivo ZIP.
+2. Abra index.html no navegador (Chrome, Edge ou Firefox).
+3. Clique em Nova solicitação e cadastre uma compra.
+4. Em Solicitações, clique em Analisar / cotar.
+5. Preencha os três fornecedores e clique em Salvar 3 cotações e gerar relatório.
+6. Consulte o ranking e use Imprimir / salvar PDF para emitir o relatório.
+
+Arquivos:
+- index.html: estrutura e telas
+- style.css: aparência visual
+- script.js: funcionalidades, cálculos e armazenamento
+
+Os dados são armazenados apenas no navegador utilizado (localStorage). Não são compartilhados entre computadores e podem desaparecer se os dados do site forem limpos. Este é um simulador educacional, não um sistema corporativo com autenticação ou banco de dados.
