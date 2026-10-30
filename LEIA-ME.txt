@@ -1,15 +1,29 @@
-SIMULADOR DE COMPRAS — HTML, CSS E JAVASCRIPT
+COMPRAFÁCIL ONLINE — INSTALAÇÃO
 
-1. Extraia o arquivo ZIP.
-2. Abra index.html no navegador (Chrome, Edge ou Firefox).
-3. Clique em Nova solicitação e cadastre uma compra.
-4. Em Solicitações, clique em Analisar / cotar.
-5. Preencha os três fornecedores e clique em Salvar 3 cotações e gerar relatório.
-6. Consulte o ranking e use Imprimir / salvar PDF para emitir o relatório.
+1) Acesse https://supabase.com e crie um projeto (plano gratuito, se disponível).
+2) Abra SQL Editor, cole o conteúdo de banco_de_dados.sql e execute.
+3) Em Authentication > Users, crie seu usuário administrador (e-mail e senha forte).
+   Desative o cadastro público de novos usuários em Authentication > Providers > Email, se disponível, ou em configurações de Sign Ups.
+4) Copie o UUID do usuário administrador. No SQL Editor execute:
+   insert into public.administradores(usuario_id) values ('UUID-DO-SEU-USUARIO');
+5) Em Project Settings > API / Data API, copie a Project URL e a chave pública anon/publishable.
+6) Edite config.js e substitua os dois textos COLE_... pelos valores copiados.
+   NUNCA coloque service_role, secret key ou senha nesse arquivo.
+7) Envie index.html, style.css, script.js e config.js para a raiz do repositório GitHub Pages.
+   NÃO é necessário enviar o SQL ou este guia.
+8) Aguarde a publicação e teste em uma janela anônima do navegador:
+   a) admin: entre com e-mail/senha e cadastre solicitação;
+   b) aluno: informe nome, veja solicitação, registre três cotações e gere relatório;
+   c) admin: clique em Atualizar acompanhamento para ver a atividade.
 
-Arquivos:
-- index.html: estrutura e telas
-- style.css: aparência visual
-- script.js: funcionalidades, cálculos e armazenamento
-
-Os dados são armazenados apenas no navegador utilizado (localStorage). Não são compartilhados entre computadores e podem desaparecer se os dados do site forem limpos. Este é um simulador educacional, não um sistema corporativo com autenticação ou banco de dados.
+IMPORTANTE
+- O sistema usa banco central PostgreSQL, não localStorage para solicitações/cotações.
+- O aluno não tem senha. O token aleatório do navegador identifica uma submissão por solicitação.
+  Apagar os dados do navegador ou usar outro aparelho cria outro token; não há garantia de identidade.
+- Para turma com controle rígido de identidade, recomenda-se autenticação individual.
+- O login é gerenciado pelo Supabase Auth; somente UUIDs em administradores podem gerenciar solicitações.
+- Não coloque o UUID do administrador ou senha no código JavaScript.
+- O projeto permite ao aluno substituir sua própria cotação para a mesma solicitação e navegador.
+- Configure limites de requisições/antibot e monitore o consumo do Supabase se publicar o link amplamente.
+- O banco permite que qualquer visitante do link envie cotações, pois o acesso estudantil é livre.
+- O professor deve informar os alunos sobre o uso e armazenamento dos nomes no serviço online.
